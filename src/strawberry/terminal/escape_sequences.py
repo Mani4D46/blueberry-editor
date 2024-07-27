@@ -2,8 +2,8 @@
 This file defines ansi escape sequences which are codes used to talk to the
 terminal.
 
-Each ansi sequence is stored as a function that returns the requested escape
-sequence.
+Each function is an ansi escape sequences that returns the requested escape
+sequence in form of a string.
 """
 
 
@@ -41,7 +41,7 @@ def move_cursor(row: int, column: int):
     CUP: Moves cursor to given position.
 
     Args:
-        row (int)
-        column (int)
+        row (int): row starting from 0
+        column (int): column starting from 0
     """
     return f'\033[{row + 1};{column + 1}H'
