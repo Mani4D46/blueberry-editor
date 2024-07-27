@@ -1,9 +1,8 @@
 """
-This file defines ansi escape sequences which are codes used to talk to the
+Here you will find ansi escape sequences which are codes used to talk to the
 terminal.
 
-Each function is an ansi escape sequences that returns the requested escape
-sequence in form of a string.
+Each function returns the requested escape sequence in form of a string.
 """
 
 
