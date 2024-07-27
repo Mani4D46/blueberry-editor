@@ -24,21 +24,21 @@ def disable_alternative_screen_buffer():
 
 def show_cursor():
     """
-    DECTCEM: Shows the blinking bar (the cursor).
+    Shows the blinking bar (the cursor).
     """
     return '\033[?25h'
 
 
 def hide_cursor():
     """
-    DECTCEM: Hides the blinking bar (the cursor).
+    Hides the blinking bar (the cursor).
     """
     return '\033[?25l'
 
 
 def move_cursor(row: int, column: int):
     """
-    CUP: Moves cursor to given position.
+    Moves cursor to given position.
 
     Args:
         row (int): row starting from 0
