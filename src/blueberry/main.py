@@ -28,6 +28,11 @@ class App():
         self.input_thread = threading.Thread(target=self.keyboard_input)
         self.update_thread = threading.Thread(target=self.update)
 
+        # actions (for extension support)
+        self.actions = {
+            'exit': self.exit,
+        }
+
     def __enter__(self):
         self.write(ansi_codes.enable_alternative_screen_buffer())
         self.input_thread.start()
