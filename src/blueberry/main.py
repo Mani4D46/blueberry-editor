@@ -45,8 +45,8 @@ class App():
         Thread to get keyboard input from the user.
         """
         while self.is_running:
-            a = input()
-            if a == 'q':
+            keypress = terminal.getkey()
+            if keypress == 'q':
                 self.exit()
 
     def update(self):
@@ -55,7 +55,6 @@ class App():
         """
         while self.is_running:
             # Do some updates here
-            print('w')
             self.draw()
             self.flush()
 
