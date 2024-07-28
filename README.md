@@ -10,7 +10,8 @@ Blueberry editor, the modern **text-based** code editor for the __terminal__.
 > This is a remake of strawberry editor which was a successful project of mine.
 
 # Todo
-- [ ] Complete the keyboard inputs.
+- [x] Get the keyboard inputs working for posix
+- [ ] Get the keyboard inputs working for windows
 - [ ] Get the UI working without flickering.
 - [ ] Get tabs and menus working.
 - [ ] Get the keybindings working.
