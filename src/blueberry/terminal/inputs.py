@@ -6,10 +6,15 @@ import platform
 if platform.system() in {'Linux', 'Darwin'}:
     import tty
     import termios
+    # comment the this 2 following lines for windows
 else:
-    raise NotImplementedError(f"OS '{platform.system()}' not supported")
+    raise NotImplementedError(
+        f"OS '{platform.system()}' not supported."
+        "for windows support change the 'inputs.py' as explained in the "
+        "comments"
+    )
 
-# Windows getch:
+# uncomment the following code for windows
 # from msvcrt import getwch
 
 # def getch():
@@ -19,6 +24,7 @@ else:
 #     return getwch().encode('utf-8', 'replace').decode()
 
 
+# comment the following function for windows
 def getch() -> str:
     """
     Gets a single character from STDIO.
@@ -43,11 +49,11 @@ def getkey() -> str:
         str
     """
     char1 = getch()
-    if char1 not in '\x00\xe0':
+    if char1 not in '\x00\xe0':  # '\x00\xe0\x1b' for windows
         return char1
 
     char2 = getch()
-    if char2 not in '\x5b':
+    if char2 not in '\x5b':  # '\x5b\x4f' for windows
         if char1 == '\xe0':
             return '\x00' + char2
         return char1 + char2
