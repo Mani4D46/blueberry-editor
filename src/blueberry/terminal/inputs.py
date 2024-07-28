@@ -1,5 +1,5 @@
 """
-Inputs from the terminal.
+Here you will find everything related to inputs from the terminal.
 """
 import sys
 import platform
