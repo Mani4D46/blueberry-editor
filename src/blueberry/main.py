@@ -37,6 +37,9 @@ class App():
         self.exit()
 
     def exit(self):
+        """
+        Exits from the app completely.
+        """
         self.is_running = False
         self.write(ansi_codes.disable_alternative_screen_buffer())
 
