@@ -11,7 +11,7 @@ else:
     raise NotImplementedError(
         f"OS '{platform.system()}' not supported."
         "for windows support change the 'inputs.py' as explained in the "
-        "comments"
+        "comments (this may not work)."
     )
 
 # uncomment the following code for windows
