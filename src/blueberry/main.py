@@ -11,10 +11,14 @@ class App():
     The blueberry editor app.
     """
     def __init__(self):
+        # tabs
         self.tabs = []
         self.current_tab = None
+
+        # states
         self.state_command_palette = terminal.State(visibility=False)
 
+        # stdout
         self.write = sys.stdout.write
         self.flush = sys.stdout.flush
 
