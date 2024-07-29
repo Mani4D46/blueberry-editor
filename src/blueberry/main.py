@@ -61,6 +61,7 @@ class App():
         self.write(ansi_codes.enable_alternative_screen_buffer())
         self.input_thread.start()
         self.update_thread.start()
+        self.write(ansi_codes.hide_cursor())
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.exit()
@@ -71,6 +72,7 @@ class App():
         """
         self.is_running = False
         self.write(ansi_codes.disable_alternative_screen_buffer())
+        self.write(ansi_codes.show_cursor())
 
     def keyboard_input(self):
         """
