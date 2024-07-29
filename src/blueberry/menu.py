@@ -1,5 +1,5 @@
 """
-Here you will find the menus.
+Here you will find the menu class.
 """
 import attr
 
@@ -12,11 +12,12 @@ class Menu():
     Attributes:
         text (str)
         submenus (List[Menu] | None): sub-menus that will open when the menu
-            is selected.
+            is selected. defaults to None.
         action (str | None): action to execute when menu is selected.
-        icon: (str | None)
+            defaults to None.
+        icon: (str | None): defaults to None.
     """
     text: str
-    submenus: list | None
-    action: str | None
-    icon: str | None
+    submenus: list | None = None
+    action: str | None = None
+    icon: str | None = None
