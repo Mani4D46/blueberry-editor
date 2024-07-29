@@ -1,9 +1,9 @@
 """
 Here you will find the script that will generate a dict of all nerdfont icons.
 """
-import requests
 from typing import Sequence
 from typing import List
+import requests
 
 FILE_NAME = 'icons.py'
 
