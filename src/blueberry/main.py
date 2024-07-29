@@ -94,7 +94,7 @@ class App():
         """
         Writes everything on the screen before the flush.
         """
-        # self.draw_menus()
+        self.draw_menus()
         # self.draw_tab()
         # self.draw_current_tab()
         # if self.state_command_palette.visibility is True:
