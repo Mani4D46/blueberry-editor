@@ -4,6 +4,10 @@ terminal.
 
 Each function returns the requested escape sequence in form of a string.
 """
+import re
+
+
+ESCAPE_REGEX = re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
 
 
 def enable_alternative_screen_buffer():
