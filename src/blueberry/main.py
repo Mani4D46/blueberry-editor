@@ -21,17 +21,7 @@ class App():
         self.tabs = []
 
         # menus
-        self.menus = [
-            menu.Menu('File', submenus=[
-                menu.Menu(
-                    'Exit',
-                    submenus=None,
-                    action='exit',
-                    icon='close'
-                )
-            ], action=None, icon=None),
-            menu.Menu('Edit', submenus=None, action=None, icon=None)
-        ]
+        self.menus = menu.default_menus
 
         # states
         self.command_palette_state = terminal.State(visibility=False)

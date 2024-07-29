@@ -21,3 +21,16 @@ class Menu():
     submenus: list | None = None
     action: str | None = None
     icon: str | None = None
+
+
+default_menus = [
+    Menu('File', submenus=[
+        Menu(
+            'Exit',
+            submenus=None,
+            action='exit',
+            icon='close'
+        )
+    ], action=None, icon=None),
+    Menu('Edit', submenus=None, action=None, icon=None)
+]
