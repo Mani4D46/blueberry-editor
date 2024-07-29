@@ -1,5 +1,5 @@
 """
-States
+Here you will find the :obj:`States` class.
 """
 
 

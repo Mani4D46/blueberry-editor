@@ -31,7 +31,7 @@ def draw_bar(start: str,
         start (str): text at the beginning.
         color: main colors.
         selected_color: color of the selected option
-        options (List[str]): list of all options.
+        options (:obj:`List` of :obj:`str`): list of all options.
         selected_item (int | None): index of the selected item.
         width (int): maximum width of this line.
 

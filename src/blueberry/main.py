@@ -1,5 +1,6 @@
 """
-This file is the main app, it combines all the required parts.
+This file is the main app, it combines all the required parts, it does all the
+drawings, updates, input stuff and etc.
 """
 import os
 import sys

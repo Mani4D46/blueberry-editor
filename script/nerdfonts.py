@@ -1,7 +1,9 @@
 """
-This script will generate a dict of all nerdfont icons.
+Here you will find the script that will generate a dict of all nerdfont icons.
 """
 import requests
+from typing import Sequence
+from typing import List
 
 FILE_NAME = 'icons.py'
 
@@ -16,20 +18,29 @@ URL = ('https://raw.githubusercontent.com/kovidgoyal/kitty/master/gen/'
        'nerd-fonts-glyphs.txt')
 
 
-def split_parts(line: str) -> list[str]:
+def split_parts(glyph_line: str) -> List[str]:
     """
     Split a glyph line to [codepoint, style, name].
+
+    Args:
+        glyph_line (str): the glyph text to split
+
+    Returns:
+        :obj:`List` of :obj:`str`
     """
-    splited_line = line.split(' ')
+    splited_line = glyph_line.split(' ')
     if len(splited_line) > 2:
         return splited_line[0], splited_line[1], '_'.join(splited_line[2:])
     else:
         print(splited_line)
 
 
-def filter_to_style(glyph) -> bool:
+def filter_to_style(glyph: Sequence) -> bool:
     """
     Returns a bool which is true only when the style of the glyph is `cod`.
+
+    Args:
+        glyph (Sequence)
     """
     if isinstance(glyph, tuple):
         return glyph[1] == 'cod'
@@ -39,7 +50,7 @@ def filter_to_style(glyph) -> bool:
 
 def make_dict_like(glyph) -> list:
     """
-    Makes the glyphs a dict item.
+    Makes the glyphs look like a indented dict item using a ":".
     """
     return f'    "\\u{glyph[0]}": "{glyph[2]}"'
 

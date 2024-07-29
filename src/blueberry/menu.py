@@ -1,5 +1,5 @@
 """
-Here you will find the menu class.
+Here you will find the :obj:`States` class.
 """
 import attr
 
@@ -11,7 +11,7 @@ class Menu():
 
     Attributes:
         text (str)
-        submenus (List[Menu] | None): sub-menus that will open when the menu
+        submenus (:obj:`List` of :obj:`Menu` | None): sub-menus that will open when the menu
             is selected. defaults to None.
         action (str | None): action to execute when menu is selected.
             defaults to None.
