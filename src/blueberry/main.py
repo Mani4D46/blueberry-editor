@@ -11,8 +11,11 @@ from collections.abc import Iterable
 from . import menu
 from . import terminal
 from . import configs
+from . import focus
+
 from .terminal import ansi_codes
 from .terminal import drawings
+
 from .action import Action
 
 
@@ -29,18 +32,16 @@ class App():
 
         # states
         self.command_palette_state = terminal.State(visibility=False)
-        self.menu_state = terminal.State(
-            selected=0,
-            submenu_selected=0,
-            is_focused=True
-        )
+        self.menu_state = terminal.State(selected=0, submenu_selected=0)
         self.is_running = True
+        # Should be included in `blueberry.focus.VALID_OPTIONS`
+        self.currently_focused = 'menu'
 
         # stdout
         self.write = sys.stdout.write
         self.flush = sys.stdout.flush
 
-        # general info
+        # terminal info
         self.columns, self.lines = os.get_terminal_size()
 
         # threading
@@ -118,7 +119,8 @@ class App():
             selected_item=self.menu_state.selected,
             width=self.columns
         ))
-        if self.menu_state.is_focused is True:
+
+        if self.currently_focused == focus.MENU:
             self.write(drawings.draw_list(
                 (1, 0),
                 self.colors['menu.open'],
