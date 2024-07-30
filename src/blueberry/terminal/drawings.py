@@ -64,6 +64,7 @@ def draw_list(location: list[int],
         location (:obj:`List` of [:obj:`int, :obj:`int`])
         color: main colors.
         selected_color: color of the selected option.
+        padding (int): amount of padding to add before and after an option
         options (:obj:`List` of :obj:`str`): list of all options.
         selected_item (int | None): index of the selected item.
         width (int): minimum width of this menu.
