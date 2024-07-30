@@ -30,7 +30,7 @@ def draw_bar(start: str,
     Args:
         start (str): text at the beginning.
         color: main colors.
-        selected_color: color of the selected option
+        selected_color: color of the selected option.
         options (:obj:`List` of :obj:`str`): list of all options.
         selected_item (int | None): index of the selected item.
         width (int): maximum width of this line.
@@ -46,4 +46,54 @@ def draw_bar(start: str,
             component += f' {option} '
     # the following line adds whitespace to the end
     component += ' ' * (width - len(remove_ascii(component)))
+    return color(component)
+
+
+def draw_list(location: list[int],
+              color,
+              selected_color,
+              padding: int,
+              options: list[str],
+              selected_item: int | None,
+              width: int,
+              height: int) -> str:
+    """
+    Draws a list menu.
+
+    Args:
+        location (:obj:`List` of [:obj:`int, :obj:`int`])
+        color: main colors.
+        selected_color: color of the selected option.
+        options (:obj:`List` of :obj:`str`): list of all options.
+        selected_item (int | None): index of the selected item.
+        width (int): minimum width of this menu.
+        height (int): height of this menu.
+
+    Returns:
+        str
+    """
+    component = ""
+
+    required_width = len(max(options, key=len))
+    if required_width > width:
+        width = required_width
+
+    option_count = len(options)
+    if option_count < height:
+        height = option_count
+
+    for index in range(0, height):
+        unused_width_space = (width - len(remove_ascii(options[index])))
+        component += ansi_codes.move_cursor(*location)
+        location[0] += 1
+        option_with_padding = (
+            ' ' * padding +
+            options[index] + ' ' * unused_width_space
+            + ' ' * padding
+        )
+        if index == selected_item:
+            component += selected_color(option_with_padding)
+        else:
+            component += option_with_padding
+
     return color(component)

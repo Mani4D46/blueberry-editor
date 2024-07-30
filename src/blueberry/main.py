@@ -29,7 +29,7 @@ class App():
 
         # states
         self.command_palette_state = terminal.State(visibility=False)
-        self.menu_state = terminal.State(selected=0)
+        self.menu_state = terminal.State(selected=0, is_focused=False)
         self.is_running = True
 
         # stdout
