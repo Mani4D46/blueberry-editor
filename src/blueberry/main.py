@@ -6,17 +6,12 @@ import os
 import sys
 import threading
 
-from collections.abc import Iterable
-
 from . import menu
 from . import terminal
 from . import configs
-from . import focus
+from . import draw_ui
 
 from .terminal import ansi_codes
-from .terminal import drawings
-
-from .action import Action
 
 
 class App():
@@ -99,51 +94,8 @@ class App():
         """
         Writes everything on the screen before the flush.
         """
-        self.draw_menus()
+        draw_ui.draw_menus(self)
         # self.draw_tab()
         # self.draw_current_tab()
         # if self.state_command_palette.visibility is True:
         #     self.draw_command_palette()
-
-    def draw_menus(self):
-        """
-        Draws the menu part of the screen.
-        """
-        menu_texts = [menu_.name for menu_ in self.menus]
-        self.write(ansi_codes.move_cursor(0, 0))
-        self.write(drawings.draw_bar(
-            start="",
-            color=self.colors['menu'],
-            selected_color=self.colors['menu.selected'],
-            options=menu_texts,
-            selected_item=self.menu_state.selected,
-            width=self.columns
-        ))
-
-        if self.currently_focused == focus.MENU:
-            self.write(drawings.draw_list(
-                (1, 0),
-                self.colors['menu.open'],
-                self.colors['menu.open.selected'],
-                self.stylings['menu.width_padding'],
-                [
-                    i.name for i in self.menus[self.menu_state.selected]
-                    .submenus
-                ],
-                self.menu_state.submenu_selected,
-                10,  # minimum is 1
-                height=self.lines
-            ))
-
-    def run_actions(self, actions: Iterable[Action] | Action):
-        """
-        Runs any action given.
-        """
-        if not isinstance(actions, Iterable):
-            # if action is not iterable, make it an iterable
-            actions = (actions,)
-        for action in actions:
-            if action.name in self.actions:
-                self.actions[action.name]()
-            else:
-                raise ValueError(f"No action found with name '{action}'")

@@ -1,6 +1,8 @@
 """
 Here you will find the :obj:`Action` class.
 """
+from collections.abc import Iterable
+
 import attr
 
 
@@ -13,3 +15,17 @@ class Action:
         name (str)
     """
     name: str
+
+
+def run_actions(self, actions: Iterable[Action] | Action):
+    """
+    Runs any action given.
+    """
+    if not isinstance(actions, Iterable):
+        # if action is not iterable, make it an iterable
+        actions = (actions,)
+    for action in actions:
+        if action.name in self.actions:
+            self.actions[action.name]()
+        else:
+            raise ValueError(f"No action found with name '{action}'")
