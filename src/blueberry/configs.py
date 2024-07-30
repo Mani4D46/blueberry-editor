@@ -10,7 +10,9 @@ from .action import Action
 # You can change colors of the UI components here:
 colors = {
     "menu": chalk.bg_gray.white,
-    "menu.selected": chalk.bg_blue.white
+    "menu.selected": chalk.bg_blue.white,
+    "menu.open": chalk.bg_gray.white,
+    "menu.open.selected": chalk.bg_blue.white
 }
 
 # You can change the overall style of UI components here:

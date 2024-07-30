@@ -17,7 +17,7 @@ class Menu():
             defaults to None.
         icon: (str | None): defaults to None.
     """
-    text: str
+    name: str
     submenus: list | None = None
     action: str | None = None
     icon: str | None = None

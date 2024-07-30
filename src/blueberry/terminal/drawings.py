@@ -83,6 +83,8 @@ def draw_list(location: list[int],
     if option_count < height:
         height = option_count
 
+    location = list(location)
+
     for index in range(0, height):
         unused_width_space = (width - len(remove_ascii(options[index])))
         component += ansi_codes.move_cursor(*location)

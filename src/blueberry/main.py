@@ -29,7 +29,11 @@ class App():
 
         # states
         self.command_palette_state = terminal.State(visibility=False)
-        self.menu_state = terminal.State(selected=0, is_focused=False)
+        self.menu_state = terminal.State(
+            selected=0,
+            submenu_selected=0,
+            is_focused=True
+        )
         self.is_running = True
 
         # stdout
@@ -51,8 +55,9 @@ class App():
         # keybinds
         self.keybinds = configs.keybinds
 
-        # colors
+        # style
         self.colors = configs.colors
+        self.stylings = configs.stylings
 
     def __enter__(self):
         self.write(ansi_codes.enable_alternative_screen_buffer())
@@ -103,7 +108,7 @@ class App():
         """
         Draws the menu part of the screen.
         """
-        menu_texts = [menu_.text for menu_ in self.menus]
+        menu_texts = [menu_.name for menu_ in self.menus]
         self.write(ansi_codes.move_cursor(0, 0))
         self.write(drawings.draw_bar(
             start="",
@@ -113,6 +118,17 @@ class App():
             selected_item=self.menu_state.selected,
             width=self.columns
         ))
+        if self.menu_state.is_focused is True:
+            self.write(drawings.draw_list(
+                (1, 0),
+                self.colors['menu.open'],
+                self.colors['menu.open.selected'],
+                self.stylings['menu.width_padding'],
+                [i.name for i in self.menus[self.menu_state.selected].submenus],
+                self.menu_state.submenu_selected,
+                10,  # minimum is 1
+                height=self.lines
+            ))
 
     def run_actions(self, actions: Iterable[Action] | Action):
         """
