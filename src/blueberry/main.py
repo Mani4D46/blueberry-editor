@@ -124,7 +124,10 @@ class App():
                 self.colors['menu.open'],
                 self.colors['menu.open.selected'],
                 self.stylings['menu.width_padding'],
-                [i.name for i in self.menus[self.menu_state.selected].submenus],
+                [
+                    i.name for i in self.menus[self.menu_state.selected]
+                    .submenus
+                ],
                 self.menu_state.submenu_selected,
                 10,  # minimum is 1
                 height=self.lines
