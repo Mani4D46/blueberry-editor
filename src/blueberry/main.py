@@ -5,11 +5,15 @@ drawings, updates, input stuff and etc.
 import os
 import sys
 import threading
+
+from collections.abc import Iterable
+
 from . import menu
 from . import terminal
 from . import configs
 from .terminal import ansi_codes
 from .terminal import drawings
+from .action import Action
 
 
 class App():
@@ -39,10 +43,13 @@ class App():
         self.input_thread = threading.Thread(target=self.keyboard_input)
         self.update_thread = threading.Thread(target=self.update)
 
-        # actions (for extension support)
+        # actions
         self.actions = {
             'exit': self.exit,
         }
+
+        # keybinds
+        self.keybinds = configs.keybinds
 
         # colors
         self.colors = configs.colors
@@ -70,8 +77,8 @@ class App():
         """
         while self.is_running:
             keypress = terminal.getkey()
-            if keypress == 'q':
-                self.exit()
+            if keypress in self.keybinds:
+                self.run_actions(self.keybinds[keypress])
 
     def update(self):
         """
@@ -97,7 +104,7 @@ class App():
         Draws the menu part of the screen.
         """
         menu_texts = [menu_.text for menu_ in self.menus]
-        self.write(ansi_codes.move_cursor(self.lines, 0))
+        self.write(ansi_codes.move_cursor(0, 0))
         self.write(drawings.draw_bar(
             start="",
             color=self.colors['menu'],
@@ -106,3 +113,16 @@ class App():
             selected_item=self.menu_state.selected,
             width=self.columns
         ))
+
+    def run_actions(self, actions: Iterable[Action] | Action):
+        """
+        Runs any action given.
+        """
+        if not isinstance(actions, Iterable):
+            # if action is not iterable, make it an iterable
+            actions = (actions,)
+        for action in actions:
+            if action.name in self.actions:
+                self.actions[action.name]()
+            else:
+                raise ValueError(f"No action found with name '{action}'")

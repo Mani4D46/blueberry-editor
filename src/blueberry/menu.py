@@ -13,7 +13,7 @@ class Menu():
         text (str)
         submenus (:obj:`List` of :obj:`Menu` | None): sub-menus that will open
             when the menu is selected. defaults to None.
-        action (str | None): action to execute when menu is selected.
+        action (str | None): action to run when menu is selected.
             defaults to None.
         icon: (str | None): defaults to None.
     """
