@@ -14,5 +14,5 @@ Blueberry editor, the modern **text-based** code editor for the __terminal__.
 - [ ] Get the keyboard inputs working for Windows
 - [ ] Get the UI working without flickering.
 - [ ] Get tabs and menus working.
-- [ ] Get the keybindings working.
+- [x] Get the keybindings working.
 - [ ] Get the editor working.
