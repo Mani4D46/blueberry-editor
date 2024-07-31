@@ -19,7 +19,7 @@ class Action:
 
 def run_actions(self, actions: Iterable[Action] | Action):
     """
-    Runs any action given.
+    Runs the given action(s).
     """
     if not isinstance(actions, Iterable):
         # if action is not iterable, make it an iterable

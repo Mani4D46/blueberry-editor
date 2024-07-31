@@ -10,6 +10,7 @@ from . import menu
 from . import terminal
 from . import configs
 from . import draw_ui
+from . import action
 
 from .terminal import ansi_codes
 
@@ -79,7 +80,7 @@ class App():
         while self.is_running:
             keypress = terminal.getkey()
             if keypress in self.keybinds:
-                self.run_actions(self.keybinds[keypress])
+                action.run_actions(self, self.keybinds[keypress])
 
     def update(self):
         """
