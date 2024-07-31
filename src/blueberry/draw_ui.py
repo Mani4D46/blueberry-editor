@@ -1,5 +1,5 @@
 """
-Here you will find the functions used to draw diffrent parts of the screen.
+Here you will find the functions used to draw diffrent parts of the UI.
 """
 
 from . import focus
@@ -16,24 +16,24 @@ def draw_menus(self):
     self.write(ansi_codes.move_cursor(0, 0))
     self.write(drawings.draw_bar(
         start="",
-        color=self.colors['menu'],
-        selected_color=self.colors['menu.selected'],
         options=menu_texts,
         selected_item=self.menu_state.selected,
+        color=self.colors['menu'],
+        selected_color=self.colors['menu.selected'],
         width=self.columns
     ))
 
     if self.currently_focused == focus.MENU:
         self.write(drawings.draw_list(
-            (1, 0),
-            self.colors['menu.open'],
-            self.colors['menu.open.selected'],
-            self.stylings['menu.width_padding'],
-            [
+            location=(1, 0),
+            options=[
                 i.name for i in self.menus[self.menu_state.selected]
                 .submenus
             ],
-            self.menu_state.submenu_selected,
-            16,
+            selected_item=self.menu_state.submenu_selected,
+            color=self.colors['menu.open'],
+            selected_color=self.colors['menu.open.selected'],
+            padding=self.stylings['menu.width_padding'],
+            width=16,
             height=self.lines
         ))

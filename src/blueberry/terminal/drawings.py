@@ -20,20 +20,20 @@ def remove_ascii(text: str) -> str:
 
 
 def draw_bar(start: str,
-             color,
-             selected_color,
              options: list[str],
              selected_item: int | None,
+             color,
+             selected_color,
              width: int) -> str:
     """
     Draws a bar.
 
     Args:
         start (str): text at the beginning.
-        color: main color.
-        selected_color: color of the selected option.
         options (:obj:`List` of :obj:`str`): list of all options.
         selected_item (int | None): index of the selected item.
+        color: main color.
+        selected_color: color of the selected option.
         width (int): maximum width of this line.
 
     Returns:
@@ -51,11 +51,11 @@ def draw_bar(start: str,
 
 
 def draw_list(location: list[int],
+              options: list[str],
+              selected_item: int | None,
               color,
               selected_color,
               padding: int,
-              options: list[str],
-              selected_item: int | None,
               width: int,
               height: int) -> str:
     """
@@ -63,11 +63,11 @@ def draw_list(location: list[int],
 
     Args:
         location (:obj:`List` of [:obj:`int, :obj:`int`])
+        options (:obj:`List` of :obj:`str`): list of all options.
+        selected_item (int | None): index of the selected item.
         color: main color.
         selected_color: color of the selected option.
         padding (int): amount of padding to add before and after an option
-        options (:obj:`List` of :obj:`str`): list of all options.
-        selected_item (int | None): index of the selected item.
         width (int): minimum width of this menu.
         height (int): height of this menu.
 
