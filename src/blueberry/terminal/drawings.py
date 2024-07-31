@@ -2,7 +2,8 @@
 Here you will find small components used for drawing stuff. useful
 for consistancy.
 """
-from . import ansi_codes
+import ansi_codes
+from yachalk import chalk
 
 
 def remove_ascii(text: str) -> str:
@@ -29,7 +30,7 @@ def draw_bar(start: str,
 
     Args:
         start (str): text at the beginning.
-        color: main colors.
+        color: main color.
         selected_color: color of the selected option.
         options (:obj:`List` of :obj:`str`): list of all options.
         selected_item (int | None): index of the selected item.
@@ -62,7 +63,7 @@ def draw_list(location: list[int],
 
     Args:
         location (:obj:`List` of [:obj:`int, :obj:`int`])
-        color: main colors.
+        color: main color.
         selected_color: color of the selected option.
         padding (int): amount of padding to add before and after an option
         options (:obj:`List` of :obj:`str`): list of all options.
@@ -98,5 +99,38 @@ def draw_list(location: list[int],
             component += selected_color(option_with_padding)
         else:
             component += option_with_padding
+
+    return color(component)
+
+
+def draw_line_numbers(current_line: int,
+                      selected_line: int,
+                      end: str,
+                      color,
+                      selected_color,
+                      width: int = 6):
+    """
+    Draws a line number.
+
+    Args:
+        current_line (int): line number for the current line.
+        selected_line (int): line number for the selected line.
+        end (str): end of line number.
+        color: main color.
+        selected_color: color of the selected option.
+        width (int): max width of this number.
+
+    Returns:
+        str
+    """
+    adjusted_line = (
+        str(current_line).rjust(width - len(remove_ascii(end)), ' ')
+    )
+    if current_line == selected_line:
+        component = selected_color(adjusted_line)
+    else:
+        component = adjusted_line
+
+    component += end
 
     return color(component)

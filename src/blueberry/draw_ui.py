@@ -34,6 +34,6 @@ def draw_menus(self):
                 .submenus
             ],
             self.menu_state.submenu_selected,
-            10,  # minimum is 1
+            16,
             height=self.lines
         ))
