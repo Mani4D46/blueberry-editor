@@ -11,7 +11,7 @@
 > This project is not even alpha so expect lots of bugs
 
 > [!NOTE]  
-> This is a remake of strawberry editor which was a successful project of mine.
+> This is a remake of [strawberry editor](https://github.com/Mani4D46/strawberry-editor) which was a successful project of mine.
 
 # Todo
 - [x] Get the keyboard inputs working for Posix
