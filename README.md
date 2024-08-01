@@ -3,6 +3,15 @@
 </p>
 <h1 align="center">Blueberry editor</h1>
 
+<p align="center">
+<a href="https://gitmoji.dev">
+  <img
+    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+    alt="Gitmoji"
+  />
+</a>
+</p>
+
 <p align="center"><a href="./docs/"><b>Explore the docs</b></a></p>
 
 <p align="center">Blueberry editor, the modern <b>text-based</b> code editor for the <b>terminal</b>.</p>
