@@ -59,4 +59,3 @@ file_content = FILE_STRUCTURE.replace(
 
 with open(FILE_NAME, 'w', encoding='ascii') as file:
     file.write(file_content)
-
