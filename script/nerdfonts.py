@@ -27,7 +27,7 @@ def split_parts(glyph_line: str) -> List[str]:
     splited_line = glyph_line.split(' ')
     if len(splited_line) > 2:
         return splited_line[0], splited_line[1], '_'.join(splited_line[2:])
-    return splited_line  
+    return splited_line
 
 def filter_to_style(glyph: Sequence) -> bool:
     """
