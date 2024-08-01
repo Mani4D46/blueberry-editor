@@ -1,4 +1,4 @@
-# **T**erminal **T**ag **A**ssi**g**nment Sequence
+# Terminal Tag Assignment Sequence
 **T**erminal **T**ag **A**ssi**g**nment or `tTAG` for short is a way of marking certain parts of a text to a sepecific "tag" which then can be used to search for that part of the text or more customize that sepecific part of text on the terminal.
 
 ## Syntax
