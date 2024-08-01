@@ -2,7 +2,7 @@
 Here you will find small components used for drawing stuff. useful
 for consistancy.
 """
-import ansi_codes
+from . import ansi_codes
 from yachalk import chalk
 
 
