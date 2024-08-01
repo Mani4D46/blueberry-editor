@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./logo/blueberry.svg" alt="blueberry editor" width="100"/>
+    <img src="./assets/blueberry.svg" alt="blueberry editor" width="100"/>
 </p>
 <h1 align="center">Blueberry editor</h1>
 
