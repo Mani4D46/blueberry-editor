@@ -3,13 +3,15 @@
 </p>
 <h1 align="center">Blueberry editor</h1>
 
+<p align="center"><a href="./docs/">Explore the docs</a></p>
+
 <p align="center">Blueberry editor, the modern **text-based** code editor for the __terminal__.</p>
 
 > [!IMPORTANT]  
 > This project is not even alpha so expect lots of bugs
 
 > [!NOTE]  
-> This is a remake of strawberry editor which was a successful project of mine.
+> This is a remake of [strawberry editor](https://github.com/Mani4D46/strawberry-editor) which was a successful project of mine.
 
 # Todo
 - [x] Get the keyboard inputs working for Posix
