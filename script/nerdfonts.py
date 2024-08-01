@@ -41,7 +41,7 @@ def filter_to_style(glyph: Sequence) -> bool:
     else:
         return False
 
-def make_dict_like(glyph) -> str: 
+def make_dict_like(glyph) -> str:
     """
     Makes the glyphs look like an indented dict item using a ":".
     """
