@@ -1,4 +1,4 @@
 yachalk<=0.1.6
 attrs<=22.0.0
 requests
-asciimagic
+ascii-magic
