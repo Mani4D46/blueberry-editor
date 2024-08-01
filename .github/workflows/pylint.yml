@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install --upgrade pylint requests typing attr yachalk
+          python3 -m pip install --upgrade -r requirements.txt
       - name: Analysing the code with pylint
         run: |
           pylint $(git ls-files '*.py')
