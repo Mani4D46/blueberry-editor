@@ -3,7 +3,6 @@ Here you will find small components used for drawing stuff. useful
 for consistancy.
 """
 from . import ansi_codes
-from yachalk import chalk
 
 
 def remove_ascii(text: str) -> str:
@@ -77,12 +76,10 @@ def draw_list(location: list[int],
     component = ""
 
     required_width = len(max(options, key=len))
-    if required_width > width:
-        width = required_width
+    width = max(width, required_width)
 
     option_count = len(options)
-    if option_count < height:
-        height = option_count
+    height = min(height, option_count)
 
     location = list(location)
 
