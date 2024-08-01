@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          python3 -m pip install asciimagic
+          python3 -m pip install ascii-magic
       - name: Run
         run: python3 tools/ascii_art.py
