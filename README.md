@@ -31,3 +31,9 @@
 - [ ] Get the editor working.
 - [x] Add logo
 - [ ] Add editor screenshot
+
+# Contributors
+
+Thank you all contributors!
+
+<img src="https://contrib.rocks/image?repo=Mani4D46/blueberry-editor" />
