@@ -1,5 +1,9 @@
 """
 Show the ascii art logo
+
+How to use?
+
+ascii()
 """
 
 from colorama import init, Fore
