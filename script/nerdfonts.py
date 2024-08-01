@@ -1,3 +1,6 @@
+"""
+Here you will find the script that will generate a dict of all nerdfont icons.
+"""
 from typing import Sequence
 from typing import List
 import requests
