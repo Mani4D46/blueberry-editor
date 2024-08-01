@@ -1,6 +1,3 @@
-"""
-Here you will find the script that will generate a dict of all nerdfont icons.
-"""
 from typing import Sequence
 from typing import List
 import requests
@@ -30,7 +27,7 @@ def split_parts(glyph_line: str) -> List[str]:
     splited_line = glyph_line.split(' ')
     if len(splited_line) > 2:
         return splited_line[0], splited_line[1], '_'.join(splited_line[2:])
-    print(splited_line)
+    return splited_line  
 
 def filter_to_style(glyph: Sequence) -> bool:
     """
@@ -44,25 +41,22 @@ def filter_to_style(glyph: Sequence) -> bool:
     else:
         return False
 
-
-def make_dict_like(glyph) -> list:
+def make_dict_like(glyph) -> str: 
     """
-    Makes the glyphs look like a indented dict item using a ":".
+    Makes the glyphs look like an indented dict item using a ":".
     """
     return f'    "\\u{glyph[0]}": "{glyph[2]}"'
 
-
 glyphs = requests.get(URL, timeout=6).text.split('\n')
-seperated_glyphs = map(split_parts, glyphs)
-filtered_glyphs = filter(filter_to_style, tuple(seperated_glyphs))
+separated_glyphs = map(split_parts, glyphs)
+filtered_glyphs = filter(filter_to_style, tuple(separated_glyphs))
 filtered_glyphs_dict_like = ',\n'.join(map(make_dict_like, filtered_glyphs))
-
 
 file_content = FILE_STRUCTURE.replace(
     '{!HERE}',
     '{\n' + filtered_glyphs_dict_like + '\n}'
 )
 
-
 with open(FILE_NAME, 'w', encoding='ascii') as file:
     file.write(file_content)
+
