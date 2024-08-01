@@ -1,7 +1,9 @@
-# Blueberry editor
-[logo here]
+<p align="center">
+    <img src="./logo/blueberry.svg" alt="blueberry editor" width="100"/>
+</p>
+<h1 align="center">Blueberry editor</h1>
 
-Blueberry editor, the modern **text-based** code editor for the __terminal__.
+<p align="center">Blueberry editor, the modern **text-based** code editor for the __terminal__.</p>
 
 > [!IMPORTANT]  
 > This project is not even alpha so expect lots of bugs
