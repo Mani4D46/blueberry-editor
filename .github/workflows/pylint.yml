@@ -1,4 +1,4 @@
-name: Pylint
+name: Lint code using Pylint
 
 on: [push]
 
