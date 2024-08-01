@@ -18,3 +18,4 @@
 - [ ] Get tabs and menus working.
 - [x] Get the keybindings working.
 - [ ] Get the editor working.
+- [x] Add logo
