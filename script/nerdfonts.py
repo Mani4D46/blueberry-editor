@@ -29,7 +29,7 @@ def split_parts(glyph_line: str) -> List[str]:
         glyph_line (str): the glyph text to split
 
     Returns:
-        :obj:`List` of :obj:`str`
+        :obj:`list` of :obj:`str`
     """
     splited_line = glyph_line.split(' ')
     if len(splited_line) > 2:
@@ -42,7 +42,10 @@ def filter_to_style(glyph: Sequence) -> bool:
     Returns a bool which is true only when the style of the glyph is `cod`.
 
     Args:
-        glyph (Sequence)
+        glyph (any :obj:`Sequence`)
+
+    Returns:
+        bool
     """
     if isinstance(glyph, tuple):
         return glyph[1] == 'cod'

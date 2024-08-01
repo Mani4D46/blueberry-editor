@@ -19,7 +19,7 @@ class App():
     """
     The blueberry editor app.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         # tabs
         self.tabs = []
 
@@ -56,16 +56,16 @@ class App():
         self.colors = configs.colors
         self.stylings = configs.stylings
 
-    def __enter__(self):
+    def __enter__(self) -> None:
         self.write(ansi_codes.enable_alternative_screen_buffer())
         self.input_thread.start()
         self.update_thread.start()
         self.write(ansi_codes.hide_cursor())
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type, exc_value, traceback) -> None:
         self.exit()
 
-    def exit(self):
+    def exit(self) -> None:
         """
         Exits from the app completely.
         """
@@ -73,7 +73,7 @@ class App():
         self.write(ansi_codes.disable_alternative_screen_buffer())
         self.write(ansi_codes.show_cursor())
 
-    def keyboard_input(self):
+    def keyboard_input(self) -> None:
         """
         Thread to get keyboard input from the user.
         """
@@ -82,7 +82,7 @@ class App():
             if keypress in self.keybinds:
                 action.run_actions(self, self.keybinds[keypress])
 
-    def update(self):
+    def update(self) -> None:
         """
         Thread to update the screen (stdout).
         """
@@ -91,7 +91,7 @@ class App():
             self.draw()
             self.flush()
 
-    def draw(self):
+    def draw(self) -> None:
         """
         Writes everything on the screen before the flush.
         """

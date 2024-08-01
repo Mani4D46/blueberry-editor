@@ -8,7 +8,7 @@ from .terminal import ansi_codes
 from .terminal import drawings
 
 
-def draw_menus(self):
+def draw_menus(self) -> None:
     """
     Draws the menu part of the screen.
     """

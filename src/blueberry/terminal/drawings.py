@@ -108,7 +108,7 @@ def draw_line_numbers(current_line: int,
                       end: str,
                       color,
                       selected_color,
-                      width: int = 6):
+                      width: int = 6) -> str:
     """
     Draws a line number.
 
