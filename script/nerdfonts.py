@@ -18,6 +18,8 @@ URL = ('https://raw.githubusercontent.com/kovidgoyal/kitty/master/gen/'
        'nerd-fonts-glyphs.txt')
 
 
+from typing import List
+
 def split_parts(glyph_line: str) -> List[str]:
     """
     Split a glyph line to [codepoint, style, name].
@@ -31,9 +33,7 @@ def split_parts(glyph_line: str) -> List[str]:
     splited_line = glyph_line.split(' ')
     if len(splited_line) > 2:
         return splited_line[0], splited_line[1], '_'.join(splited_line[2:])
-    else:
-        print(splited_line)
-
+    print(splited_line)
 
 def filter_to_style(glyph: Sequence) -> bool:
     """
