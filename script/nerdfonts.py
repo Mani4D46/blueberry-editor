@@ -5,7 +5,7 @@ from typing import Sequence
 from typing import List
 import requests
 
-FILE_NAME = './../icons.py'
+FILE_NAME = './icons.py'
 
 FILE_STRUCTURE = '''"""
 Here you will find the nerdfonts icons that can be used.
