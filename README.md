@@ -3,6 +3,8 @@
 </p>
 <h1 align="center">Blueberry editor</h1>
 
+<p align="center"><a href="./docs/">Explore the docs</a></p>
+
 <p align="center">Blueberry editor, the modern **text-based** code editor for the __terminal__.</p>
 
 > [!IMPORTANT]  
