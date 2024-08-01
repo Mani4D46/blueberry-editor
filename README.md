@@ -1,7 +1,7 @@
 <p align="center">
     <img src="./assets/blueberry.svg" alt="blueberry editor" width="150"/>
 </p>
-<h1 align="center">Blueberry editor</h1>
+<h1 align="center">Blueberry editor :blueberries:</h1>
 
 <p align="center">
 <a href="https://gitmoji.dev">
