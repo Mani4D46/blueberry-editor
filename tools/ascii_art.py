@@ -1,3 +1,7 @@
+"""
+Show the ascii art logo
+"""
+
 from colorama import init, Fore
 
 init()
