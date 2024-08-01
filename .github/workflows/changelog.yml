@@ -3,7 +3,7 @@ name: Update Changelog
 on:
   push:
     branches:
-      - main
+      - development
 
 jobs:
   update-changelog:
