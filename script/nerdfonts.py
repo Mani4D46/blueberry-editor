@@ -17,9 +17,6 @@ ICONS = {!HERE}
 URL = ('https://raw.githubusercontent.com/kovidgoyal/kitty/master/gen/'
        'nerd-fonts-glyphs.txt')
 
-
-from typing import List
-
 def split_parts(glyph_line: str) -> List[str]:
     """
     Split a glyph line to [codepoint, style, name].
