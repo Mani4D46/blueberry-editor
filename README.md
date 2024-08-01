@@ -4,12 +4,12 @@
 <h1 align="center">Blueberry editor :blueberries:</h1>
 
 <p align="center">
-<a href="https://gitmoji.dev">
-  <img
-    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
-    alt="Gitmoji"
-  />
-</a>
+    <a href="https://gitmoji.dev">
+          <img
+            src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+            alt="Gitmoji"
+          />
+    </a>
 </p>
 
 <p align="center"><a href="./docs/"><b>Explore the docs</b></a></p>
