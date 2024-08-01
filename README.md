@@ -5,7 +5,7 @@
 
 <p align="center"><a href="./docs/">Explore the docs</a></p>
 
-<p align="center">Blueberry editor, the modern **text-based** code editor for the __terminal__.</p>
+<p align="center">Blueberry editor, the modern <b>text-based</b> code editor for the <b>terminal</b>.</p>
 
 > [!IMPORTANT]  
 > This project is not even alpha so expect lots of bugs
