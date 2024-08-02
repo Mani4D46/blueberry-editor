@@ -1,5 +1,5 @@
 yachalk<=0.1.6
 attrs<=22.0.0
-requests
-colorama
-pylint
+requests<=2.32.3
+colorama<=0.4.6
+pylint<=3.2.6
