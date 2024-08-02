@@ -2,3 +2,4 @@ yachalk<=0.1.6
 attrs<=22.0.0
 requests
 colorama
+pylint
