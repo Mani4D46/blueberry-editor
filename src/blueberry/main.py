@@ -28,7 +28,10 @@ class App():
 
         # states
         self.menu_state = terminal.State(selected=0, submenu_selected=0)
-        self.is_running = True
+        self.app_state = terminal.State(
+            is_running=True,
+            size=os.get_terminal_size()
+        )
         # the value for `self.currently_focused` should be included in
         # `blueberry.focus.VALID_OPTIONS`
         self.currently_focused = 'menu'
@@ -36,9 +39,6 @@ class App():
         # stdout
         self.write = sys.stdout.write
         self.flush = sys.stdout.flush
-
-        # terminal info
-        self.columns, self.lines = os.get_terminal_size()
 
         # threading
         self.input_thread = threading.Thread(target=self.keyboard_input)
@@ -62,7 +62,7 @@ class App():
         """
         Exits from the app completely.
         """
-        self.is_running = False
+        self.app_state.is_running = False
         self.write(ansi_codes.disable_alternative_screen_buffer())
         self.write(ansi_codes.show_cursor())
 
@@ -70,7 +70,7 @@ class App():
         """
         Thread to get keyboard input from the user.
         """
-        while self.is_running:
+        while self.app_state.is_running:
             keypress = terminal.getkey()
             if keypress in configs.keybinds:
                 action.run_actions(self, configs.keybinds[keypress])
@@ -79,7 +79,7 @@ class App():
         """
         Thread to update the screen (stdout).
         """
-        while self.is_running:
+        while self.app_state.is_running:
             # Do some updates here
             self.draw()
             self.flush()

@@ -21,7 +21,7 @@ def draw_menus(self) -> None:
         selected_item=self.menu_state.selected,
         color=configs.colors['menu'],
         selected_color=configs.colors['menu.selected'],
-        width=self.columns
+        width=self.app_state.size.columns
     ))
 
     if self.currently_focused == focus.MENU:
@@ -36,5 +36,5 @@ def draw_menus(self) -> None:
             selected_color=configs.colors['menu.open.selected'],
             padding=configs.stylings['menu.width_padding'],
             width=16,
-            height=self.lines
+            height=self.app_state.size.lines
         ))
