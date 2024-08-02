@@ -29,7 +29,8 @@ class App():
         # states
         self.menu_state = terminal.State(selected=0, submenu_selected=0)
         self.is_running = True
-        # Should be included in `blueberry.focus.VALID_OPTIONS`
+        # the value for `self.currently_focused` should be included in
+        # `blueberry.focus.VALID_OPTIONS`
         self.currently_focused = 'menu'
 
         # stdout
