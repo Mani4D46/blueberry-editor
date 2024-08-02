@@ -6,6 +6,7 @@ from . import focus
 
 from .terminal import ansi_codes
 from .terminal import drawings
+from . import configs
 
 
 def draw_menus(self) -> None:
@@ -18,8 +19,8 @@ def draw_menus(self) -> None:
         start="",
         options=menu_texts,
         selected_item=self.menu_state.selected,
-        color=self.colors['menu'],
-        selected_color=self.colors['menu.selected'],
+        color=configs.colors['menu'],
+        selected_color=configs.colors['menu.selected'],
         width=self.columns
     ))
 
@@ -31,9 +32,9 @@ def draw_menus(self) -> None:
                 .submenus
             ],
             selected_item=self.menu_state.submenu_selected,
-            color=self.colors['menu.open'],
-            selected_color=self.colors['menu.open.selected'],
-            padding=self.stylings['menu.width_padding'],
+            color=configs.colors['menu.open'],
+            selected_color=configs.colors['menu.open.selected'],
+            padding=configs.stylings['menu.width_padding'],
             width=16,
             height=self.lines
         ))

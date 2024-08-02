@@ -27,7 +27,6 @@ class App():
         self.menus = menu.default_menus
 
         # states
-        self.command_palette_state = terminal.State(visibility=False)
         self.menu_state = terminal.State(selected=0, submenu_selected=0)
         self.is_running = True
         # Should be included in `blueberry.focus.VALID_OPTIONS`
@@ -48,13 +47,6 @@ class App():
         self.actions = {
             'exit': self.exit,
         }
-
-        # keybinds
-        self.keybinds = configs.keybinds
-
-        # style
-        self.colors = configs.colors
-        self.stylings = configs.stylings
 
     def __enter__(self) -> None:
         self.write(ansi_codes.enable_alternative_screen_buffer())
@@ -79,8 +71,8 @@ class App():
         """
         while self.is_running:
             keypress = terminal.getkey()
-            if keypress in self.keybinds:
-                action.run_actions(self, self.keybinds[keypress])
+            if keypress in configs.keybinds:
+                action.run_actions(self, configs.keybinds[keypress])
 
     def update(self) -> None:
         """
