@@ -17,5 +17,3 @@ class State():
     def __init__(self, **state) -> None:
         for key, value in state.items():
             setattr(self, key, value)
-
-print()

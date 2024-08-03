@@ -1,7 +1,7 @@
 """
 Here you will find most terminal keys as constants to be used for keybindings
 """
-from sys import platform
+import platform
 
 LF = "\x0a"
 CR = "\x0d"
@@ -36,7 +36,7 @@ CTRL_X = "\x18"
 CTRL_Y = "\x19"
 CTRL_Z = "\x1a"
 
-if platform.startswith(("linux", "darwin", "freebsd")):
+if platform.system() in {'Linux', 'Darwin'}:
     BACKSPACE = "\x7f"
     CTRL_BACKSPACE = "\x08"
 
@@ -75,37 +75,40 @@ if platform.startswith(("linux", "darwin", "freebsd")):
 
     ENTER = LF
     DELETE = SUPR
-elif platform in ("win32", "cygwin"):
-    BACKSPACE = "\x08"
-    CTRL_BACKSPACE = "\x7f"
 
-    UP = "\x00\x48"
-    DOWN = "\x00\x50"
-    LEFT = "\x00\x4b"
-    RIGHT = "\x00\x4d"
+# Uncomment the following lines for windows support
 
-    INSERT = "\x00\x52"
-    SUPR = "\x00\x53"
-    HOME = "\x00\x47"
-    END = "\x00\x4f"
-    PAGE_UP = "\x00\x49"
-    PAGE_DOWN = "\x00\x51"
+# elif platform in ("win32", "cygwin"):
+#     BACKSPACE = "\x08"
+#     CTRL_BACKSPACE = "\x7f"
 
-    F1 = "\x00\x3b"
-    F2 = "\x00\x3c"
-    F3 = "\x00\x3d"
-    F4 = "\x00\x3e"
-    F5 = "\x00\x3f"
-    F6 = "\x00\x40"
-    F7 = "\x00\x41"
-    F8 = "\x00\x42"
-    F9 = "\x00\x43"
-    F10 = "\x00\x44"
-    F11 = "\x00\x85"
-    F12 = "\x00\x86"
+#     UP = "\x00\x48"
+#     DOWN = "\x00\x50"
+#     LEFT = "\x00\x4b"
+#     RIGHT = "\x00\x4d"
 
-    ESC_2 = "\x00\x01"
-    ENTER_2 = "\x00\x1c"
+#     INSERT = "\x00\x52"
+#     SUPR = "\x00\x53"
+#     HOME = "\x00\x47"
+#     END = "\x00\x4f"
+#     PAGE_UP = "\x00\x49"
+#     PAGE_DOWN = "\x00\x51"
 
-    ENTER = CR
-    DELETE = SUPR
+#     F1 = "\x00\x3b"
+#     F2 = "\x00\x3c"
+#     F3 = "\x00\x3d"
+#     F4 = "\x00\x3e"
+#     F5 = "\x00\x3f"
+#     F6 = "\x00\x40"
+#     F7 = "\x00\x41"
+#     F8 = "\x00\x42"
+#     F9 = "\x00\x43"
+#     F10 = "\x00\x44"
+#     F11 = "\x00\x85"
+#     F12 = "\x00\x86"
+
+#     ESC_2 = "\x00\x01"
+#     ENTER_2 = "\x00\x1c"
+
+#     ENTER = CR
+#     DELETE = SUPR

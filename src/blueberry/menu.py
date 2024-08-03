@@ -23,7 +23,7 @@ class Menu():
     icon: str | None = None
 
 
-default_menus = [
+menu_list = [
     Menu('File', submenus=[
         Menu(
             'Exit',

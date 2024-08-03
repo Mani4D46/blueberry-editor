@@ -49,7 +49,7 @@ def getkey() -> str:
         str
     """
     char1 = getch()
-    if char1 not in '\x00\xe0':  # '\x00\xe0\x1b' for windows
+    if char1 not in '\x00\xe0\x1b':
         return char1
 
     char2 = getch()
