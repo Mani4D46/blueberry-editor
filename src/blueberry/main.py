@@ -90,7 +90,6 @@ class App():
                     self.menu_state.selected,
                     max_value=len(menu.menu_list) - 1
                 )
-            
 
     def update(self) -> None:
         """
