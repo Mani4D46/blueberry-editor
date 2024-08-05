@@ -17,6 +17,9 @@ menu_open_selected = "#dbe9f4" # Hex please!
 # Config for styling
 menu_width_padding = 1
 
+# Config for keybinding
+exit_key = keys.CTRL_Q: Action("exit")
+
 # You can change colors of the UI components here:
 colors = {
     "menu": chalk.hex(menu_color),
@@ -32,7 +35,7 @@ stylings = {
 
 # You can choose the keybinds you prefer here:
 keybinds = {
-    keys.CTRL_Q: Action("exit")
+    exit_key
 }
 
 CSI2J_CLEARING = False
