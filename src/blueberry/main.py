@@ -30,10 +30,7 @@ class App():
 
         # states
         self.menu_state = terminal.State(selected=0, submenu_selected=0)
-        self.app_state = terminal.State(
-            is_running=True,
-            size=os.get_terminal_size()
-        )
+        self.is_running = True
         # the value for `self.currently_focused` should be included in
         # `blueberry.focus.VALID_OPTIONS`
         self.currently_focused = focus.MENU
@@ -42,16 +39,23 @@ class App():
         self.input_thread = threading.Thread(target=self.keyboard_input)
         self.update_thread = threading.Thread(target=self.update)
 
+        # terminal actions
+        self.write = sys.stdout.write
+        self.flush = sys.stdout.flush
+
+        # terminal info
+        self.terminal_columns, self.terminal_lines = os.get_terminal_size()
+
         # actions
         self.actions = {
             'exit': self.exit,
         }
 
     def __enter__(self) -> None:
-        sys.stdout.write(ansi_codes.enable_alternative_screen_buffer())
+        self.write(ansi_codes.enable_alternative_screen_buffer())
         self.input_thread.start()
         self.update_thread.start()
-        sys.stdout.write(ansi_codes.hide_cursor())
+        self.write(ansi_codes.hide_cursor())
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
         self.exit()
@@ -60,15 +64,15 @@ class App():
         """
         Exits from the app completely.
         """
-        self.app_state.is_running = False
-        sys.stdout.write(ansi_codes.disable_alternative_screen_buffer())
-        sys.stdout.write(ansi_codes.show_cursor())
+        self.is_running = False
+        self.write(ansi_codes.disable_alternative_screen_buffer())
+        self.write(ansi_codes.show_cursor())
 
     def keyboard_input(self) -> None:
         """
         Thread to get keyboard input from the user.
         """
-        while self.app_state.is_running:
+        while self.is_running:
             keypress = terminal.getkey()
             if keypress in UNBINDABLE_KEYS:
                 self.move(keypress)
@@ -95,10 +99,11 @@ class App():
         """
         Thread to update the screen (stdout).
         """
-        while self.app_state.is_running:
+        while self.is_running:
             # Do some updates here
+            # self.clear()
             self.draw()
-            sys.stdout.flush()
+            self.flush()
 
     def draw(self) -> None:
         """
@@ -109,3 +114,26 @@ class App():
         # self.draw_current_tab()
         # if self.state_command_palette.visibility is True:
         #     self.draw_command_palette()
+
+    def move_cursor(self, line, column) -> None:
+        """
+        Moves cursor to given position.
+
+        Args:
+            row (int): row starting from 0
+            column (int): column starting from 0
+
+        Returns:
+            str
+        """
+        self.write(ansi_codes.move_cursor(line, column))
+
+    def clear(self) -> None:
+        """
+        Clears the terminal screen
+        """
+        if configs.CSI2J_CLEARING is True:
+            self.write(ansi_codes.clear_screen())
+        else:
+            self.move_cursor(0, 0)
+            self.write(' ' * self.terminal_columns * self.terminal_lines)

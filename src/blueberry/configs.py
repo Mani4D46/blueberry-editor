@@ -24,3 +24,5 @@ stylings = {
 keybinds = {
     keys.CTRL_Q: Action("exit")
 }
+
+CSI2J_CLEARING = False

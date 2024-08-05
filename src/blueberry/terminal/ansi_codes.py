@@ -63,3 +63,14 @@ def move_cursor(row: int, column: int) -> str:
         str
     """
     return f'\033[{row + 1};{column + 1}H'
+
+
+def clear_screen() -> str:
+    """
+    Changes the terminal screen buffer to an empty one until the alternative
+    screen buffer is disabled.
+
+    Returns:
+        str
+    """
+    return '\033[2J'

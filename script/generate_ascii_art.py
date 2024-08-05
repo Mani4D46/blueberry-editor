@@ -132,4 +132,4 @@ if __name__ == '__main__':
                 s.append("\033[0m\n")
             bp = p
         s.append("\n")
-        sys.stdout.write(''.join(s) + '! ')
+        self.write(''.join(s) + '! ')
