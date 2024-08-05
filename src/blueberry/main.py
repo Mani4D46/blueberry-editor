@@ -9,7 +9,6 @@ import threading
 from . import menu
 from . import terminal
 from . import configs
-from . import draw_ui
 from . import action
 from . import focus
 from . import movement
@@ -109,7 +108,7 @@ class App():
         """
         Writes everything on the screen before the flush.
         """
-        draw_ui.draw_menus(self)
+        menu.draw_menus(self)
         # self.draw_tab()
         # self.draw_current_tab()
         # if self.state_command_palette.visibility is True:
