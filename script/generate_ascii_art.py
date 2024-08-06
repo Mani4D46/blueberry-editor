@@ -68,11 +68,11 @@ if __name__ == '__main__':
     else:
         bp = [0, 0 ,0]
         #Ensure the variable type is a string
-        option = str(sys.argv[1])
+        input_file = str(sys.argv[1])
 
         #Process the image file
         from PIL import Image
-        im = Image.open(option)
+        im = Image.open(input_file)
         x = im.size[0]
         im = list(im.getdata())
         s = []
