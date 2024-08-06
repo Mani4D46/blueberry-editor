@@ -67,12 +67,11 @@ if __name__ == '__main__':
     #If all other criteria are not met, process the file
     else:
         bp = [0, 0 ,0]
-        #Ensure the variable type is a string
-        input_file = str(sys.argv[1])
+        file = str(sys.argv[1])
 
         #Process the image file
         from PIL import Image
-        im = Image.open(input_file)
+        im = Image.open(file)
         x = im.size[0]
         im = list(im.getdata())
         s = []
@@ -97,4 +96,4 @@ if __name__ == '__main__':
                 s.append("\033[0m\n")
             bp = p
         s.append("\n")
-        self.write(''.join(s) + '! ')
+        sys.stdout.write(''.join(s) + '! ')
