@@ -67,21 +67,21 @@ if __name__ == '__main__':
     #If all other criteria are not met, process the file
     else:
         bp = [0, 0 ,0]
-        file = str(sys.argv[1])
+        FILE = str(sys.argv[1])
 
         #Process the image file
         from PIL import Image
-        im = Image.open(file)
+        im = Image.open(FILE)
         x = im.size[0]
         im = list(im.getdata())
         s = []
-        x_0 = False
-        o_0 = False
+        X_0 = False
+        O_0 = False
         for i, p in enumerate(im):
             if len(p) > 3 and p[3] == 0:
-                if x_0 is False:
+                if X_0 is False:
                     s.append(f"\033[0m  ")
-                    x_0 = True
+                    X_0 = True
                 else:
                     s.append(f"  ")
             else:
@@ -89,10 +89,10 @@ if __name__ == '__main__':
                     s.append(f"\033[48;2;{p[0]};{p[1]};{p[2]}m  ")
                 else:
                     s.append(f"  ")
-                x_0 = False
+                X_0 = False
 
             if (i+1) % x == 0:
-                x_0 = False
+                X_0 = False
                 s.append("\033[0m\n")
             bp = p
         s.append("\n")
