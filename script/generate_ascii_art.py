@@ -40,41 +40,6 @@ __status__ = "Development"
 import sys
 import os.path
 
-def print_help():
-
-    print("")
-    print(75 * "=")
-    print(30 * "=" , "IMAGE to ANSI" , 30 * "=")
-    print(75 * "=")
-
-    print("\nCredits: " , __credits__[0] , "\n\t" ,  __credits__[1] , "\n\t" , __credits__[2] , "\n\t" , __credits__[3])
-    print("License: " , __license__)
-    print("Version: " , __version__)
-    print("Maintainer: " , __maintainer__ , " " , __email__)
-    print("Status: " ,  __status__)
-
-    print("\nThis program allows you to convert a graphic file (preferably png) into\n" \
-          "ANSI code that will display a rendition of the image in a console that\n" \
-          "supports ANSI color codes.\n")
-
-    print("You need to have python, python-image, python-pillow. You can either\n" \
-          "install these with your package manager (apt/yum) or install python-pip\n" \
-          "and install the necessary modules from there.\n")
-
-    print("See the github repository for more information (if available).\n")
-
-    print("\n### USAGE ###\n")
-    print("Standard:\n" \
-        "\tpython image-to-ansi.py <inputfile>\n")
-
-    print(75 * "-")
-
-    print("Source: https://github.com/torrycrass/image-to-ansi")
-
-    print(75 * "-")
-    print("")
-
-
 if __name__ == '__main__':
 
     #Check that the user passed a single variable to the script
@@ -88,7 +53,7 @@ if __name__ == '__main__':
 
     #Handle a help request
     elif str(sys.argv[1]) == "--help" or str(sys.argv[1]) == "-h":
-        print_help()
+        print("Use it like: python3 generate_ascii_art.py myfile.png")
 
     #Check that the variable provided is a valid file name on the system
     elif os.path.isfile(sys.argv[1]) is not True:
