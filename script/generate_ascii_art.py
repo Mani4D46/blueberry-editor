@@ -27,7 +27,7 @@ allowing the user to run: python image-to-ansi.py <filename>
 -torrycrass
 """
 
-__author__    = "Micah Elliott http://MicahElliott.com; Kevin Lange <k@dakko.us>; Takumi Sueda <puhitaku@gmail.com>"
+__author__    = "Micah Elliott http://MicahElliott.com; Kevin Lange <k@dakko.us>"
 __copyright__ = "Copyright (C) 2011 Micah Elliott.  All rights reserved."
 __credits__ = ["Micah Elliott", "Kevin Lange", "Takumi Sueda", "Torry Crass"]
 
