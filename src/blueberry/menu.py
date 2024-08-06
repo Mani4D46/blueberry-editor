@@ -1,5 +1,5 @@
 """
-Here you will find the :obj:`States` class.
+Here you will find things related to menus.
 """
 
 from collections.abc import Sequence
